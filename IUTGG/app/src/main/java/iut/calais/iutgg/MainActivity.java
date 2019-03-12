@@ -1,4 +1,4 @@
-package net.simplifiedcoding.iutgg;
+package iut.calais.iutgg;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -6,14 +6,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-
-import net.simplifiedcoding.bottomnavigationexample.JoueurFragment;
-
-import iut.calais.iutgg.EquipeFragment;
-import iut.calais.iutgg.HomeFragment;
-import iut.calais.iutgg.MatchFragment;
-import iut.calais.iutgg.R;
-import iut.calais.iutgg.TournoisFragment;
 
 //implement the interface OnNavigationItemSelectedListener in your activity class
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -42,21 +34,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new HomeFragment();
                 break;
 
-            case R.id.navigation_profile:
+            case R.id.navigation_match:
                 fragment = new EquipeFragment();
                 break;
 
-            case R.id.navigation_notifications:
+            case R.id.navigation_joueur:
                 fragment = new JoueurFragment();
                 break;
 
-        /*    case R.id.navigation_:
+            case R.id.navigation_equipe:
                 fragment = new MatchFragment();
                 break;
 
-            case R.id.navigation_profile:
+            case R.id.navigation_tournois:
                 fragment = new TournoisFragment();
-                break;*/
+                break;
         }
 
 

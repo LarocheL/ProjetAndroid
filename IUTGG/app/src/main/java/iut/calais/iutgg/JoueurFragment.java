@@ -1,4 +1,4 @@
-package net.simplifiedcoding.bottomnavigationexample;
+package iut.calais.iutgg;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
