@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new HomeFragment();
                 break;
 
-            case R.id.navigation_match:
+            case R.id.navigation_equipe:
                 fragment = new EquipeFragment();
                 break;
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new JoueurFragment();
                 break;
 
-            case R.id.navigation_equipe:
+            case R.id.navigation_match:
                 fragment = new MatchFragment();
                 break;
 

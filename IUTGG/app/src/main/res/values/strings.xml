@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">IUT.GG</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_home">Accueil</string>
+    <string name="title_team">Équipes</string>
+    <string name="title_player">Joueurs</string>
+    <string name="title_vs">Matchs</string>
+    <string name="title_tournois">Tournois</string>
+    <string name="presentation_accueil">"IUT.GG est une application créée lors d'un projet scolaire Android à l'IUT de Calais. Le but de cette application est de proposer des informations sur l'E-Sport du jeu League of Legends. Cette application à été créé par l'équipe de développement suivante:  Laroche Lucas - Vouters Lucas - Plouvin Florian - Ditilyeu Dorian - Comello Baptiste" </string>
 
 </resources>
