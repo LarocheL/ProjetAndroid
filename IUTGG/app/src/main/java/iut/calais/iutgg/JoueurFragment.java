@@ -32,7 +32,6 @@ public class JoueurFragment extends Fragment {
         //if it is DashboardFragment it should have R.layout.fragment_dashboard
         View inflate = inflater.inflate(R.layout.fragment_equipes, null);
 
-        mTextViewResult = inflate.findViewById(R.id.text_view_result);
         OkHttpClient client = new OkHttpClient();
 
         String url ="https://api.pandascore.co/lol/champions?token=npTnZJLyI_0lSzj8EkbM_tBIYmR6wp36IKyTSe1yfAuP5uPmTrA";

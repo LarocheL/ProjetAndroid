@@ -6,11 +6,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import okhttp3.Call;
@@ -24,7 +27,10 @@ import okhttp3.Response;
  */
 
 public class MatchFragment extends Fragment {
-    private TextView mTextViewResult;
+    ArrayList<Match> match = new ArrayList<Match>();
+    // Create the adapter to convert the array to views
+    MatchAdapter adapter ;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,9 +38,15 @@ public class MatchFragment extends Fragment {
         //with the fragment you want to inflate
         //like if the class is HomeFragment it should have R.layout.home_fragment
         //if it is DashboardFragment it should have R.layout.fragment_dashboard
-        View inflate = inflater.inflate(R.layout.fragment_equipes, null);
+        View inflate = inflater.inflate(R.layout.fragment_matchs, null);
 
-        mTextViewResult = inflate.findViewById(R.id.text_view_result);
+        // Attach the adapter to a ListView
+        ListView listView = (ListView) inflate.findViewById(R.id.lvItems);
+
+        adapter= new MatchAdapter(this.getActivity(), match);
+        listView.setAdapter(adapter);
+
+
         OkHttpClient client = new OkHttpClient();
 
 
@@ -56,13 +68,12 @@ public class MatchFragment extends Fragment {
                     MatchFragment.this.getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mTextViewResult.setText(myresponse);
+
                             Gson gson = new Gson();
                             Match[] matches1 = gson.fromJson(myresponse, Match[].class);
-
-                            for (Match match : matches1) {
-                                match.getTournament();
-                            }
+match.clear();
+match.addAll(Arrays.asList(matches1));
+adapter.notifyDataSetChanged();
 
                         }
                     });

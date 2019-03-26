@@ -6,9 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -22,6 +25,8 @@ import okhttp3.Response;
 
 public class TournoisFragment extends Fragment {
     private TextView mTextViewResult;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,9 +36,7 @@ public class TournoisFragment extends Fragment {
         //if it is DashboardFragment it should have R.layout.fragment_dashboard
         View inflate = inflater.inflate(R.layout.fragment_equipes, null);
 
-        mTextViewResult = inflate.findViewById(R.id.text_view_result);
         OkHttpClient client = new OkHttpClient();
-
         String url ="https://api.pandascore.co/lol/tournaments?token=npTnZJLyI_0lSzj8EkbM_tBIYmR6wp36IKyTSe1yfAuP5uPmTrA";
 
         Request request = new Request.Builder().url(url).build();
