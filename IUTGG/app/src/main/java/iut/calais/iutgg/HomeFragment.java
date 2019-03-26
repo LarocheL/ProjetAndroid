@@ -24,4 +24,5 @@ public class HomeFragment extends Fragment {
         //if it is DashboardFragment it should have R.layout.fragment_dashboard
         return inflater.inflate(R.layout.fragment_accueil, null);
     }
+
 }
