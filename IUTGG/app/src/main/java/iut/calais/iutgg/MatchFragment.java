@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -34,6 +37,7 @@ public class MatchFragment extends Fragment {
         mTextViewResult = inflate.findViewById(R.id.text_view_result);
         OkHttpClient client = new OkHttpClient();
 
+
         String url ="https://api.pandascore.co/lol/matches?token=npTnZJLyI_0lSzj8EkbM_tBIYmR6wp36IKyTSe1yfAuP5uPmTrA";
 
         Request request = new Request.Builder().url(url).build();
@@ -53,6 +57,13 @@ public class MatchFragment extends Fragment {
                         @Override
                         public void run() {
                             mTextViewResult.setText(myresponse);
+                            Gson gson = new Gson();
+                            Match[] matches1 = gson.fromJson(myresponse, Match[].class);
+
+                            for (Match match : matches1) {
+                                match.getTournament();
+                            }
+
                         }
                     });
                 }
