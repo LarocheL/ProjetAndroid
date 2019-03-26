@@ -6,9 +6,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import iut.calais.iutgg.R;
 import okhttp3.Call;
@@ -22,6 +27,10 @@ import okhttp3.Response;
  */
 
 public class EquipeFragment extends Fragment {
+    ArrayList<Team> teams = new ArrayList<Team>();
+    // Create the adapter to convert the array to views
+    EquipeAdapter adapter ;
+
     private TextView mTextViewResult;
     @Nullable
     @Override
@@ -31,10 +40,13 @@ public class EquipeFragment extends Fragment {
         //like if the class is HomeFragment it should have R.layout.home_fragment
         //if it is DashboardFragment it should have R.layout.fragment_dashboard
         View inflate = inflater.inflate(R.layout.fragment_equipes, null);
+        ListView listView = (ListView) inflate.findViewById(R.id.lvItems);
 
+        adapter= new EquipeAdapter(this.getActivity(), teams);
+        listView.setAdapter(adapter);
         OkHttpClient client = new OkHttpClient();
 
-        String url ="https://api.pandascore.co/lol/champions?token=npTnZJLyI_0lSzj8EkbM_tBIYmR6wp36IKyTSe1yfAuP5uPmTrA";
+        String url ="https://api.pandascore.co/lol/teams?token=npTnZJLyI_0lSzj8EkbM_tBIYmR6wp36IKyTSe1yfAuP5uPmTrA";
 
         Request request = new Request.Builder().url(url).build();
 
@@ -52,7 +64,11 @@ public class EquipeFragment extends Fragment {
                     EquipeFragment.this.getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mTextViewResult.setText(myresponse);
+                            Gson gson = new Gson();
+                            Team[] team1 = gson.fromJson(myresponse, Team[].class);
+                            teams.clear();
+                            teams.addAll(Arrays.asList(team1));
+                            adapter.notifyDataSetChanged();
                         }
                     });
                 }
