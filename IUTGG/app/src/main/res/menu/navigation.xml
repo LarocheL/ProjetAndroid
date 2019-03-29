@@ -11,19 +11,19 @@
         android:icon="@drawable/joueurs"
         android:title="@string/title_team" />
 
-    <item
+    <!-- <item
         android:id="@+id/navigation_joueur"
         android:icon="@drawable/joueur"
         android:title="@string/title_player" />
-
+    -->
     <item
         android:id="@+id/navigation_match"
         android:icon="@drawable/vs"
         android:title="@string/title_vs" />
 
-    <item
+    <!-- <item
         android:id="@+id/navigation_tournois"
         android:icon="@drawable/trophee"
         android:title="@string/title_tournois" />
-
+    -->
 </menu>

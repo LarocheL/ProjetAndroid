@@ -35,6 +35,7 @@ public class EquipeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //fragment de l'équipe
         //just change the fragment_dashboard
         //with the fragment you want to inflate
         //like if the class is HomeFragment it should have R.layout.home_fragment
@@ -63,6 +64,7 @@ public class EquipeFragment extends Fragment {
 
                     EquipeFragment.this.getActivity().runOnUiThread(new Runnable() {
                         @Override
+                        //Gestion de l'array list
                         public void run() {
                             Gson gson = new Gson();
                             Team[] team1 = gson.fromJson(myresponse, Team[].class);

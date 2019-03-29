@@ -13,7 +13,7 @@ public class EquipeAdapter extends ArrayAdapter<Team> {
     public EquipeAdapter(Context context, ArrayList<Team> equipes) {
         super(context, 0, equipes);
     }
-
+    //adapteur pour le fragment de l'équipe
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position

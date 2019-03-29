@@ -68,12 +68,12 @@ public class MatchFragment extends Fragment {
                     MatchFragment.this.getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
+                            //gestion du MatchFragment
                             Gson gson = new Gson();
                             Match[] matches1 = gson.fromJson(myresponse, Match[].class);
-match.clear();
-match.addAll(Arrays.asList(matches1));
-adapter.notifyDataSetChanged();
+                            match.clear();
+                            match.addAll(Arrays.asList(matches1));
+                            adapter.notifyDataSetChanged();
 
                         }
                     });

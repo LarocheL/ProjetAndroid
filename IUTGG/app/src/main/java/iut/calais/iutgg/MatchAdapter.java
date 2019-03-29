@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
+//adapteur pour le Match fragment
 public class MatchAdapter extends ArrayAdapter<Match> {
     public MatchAdapter(Context context, ArrayList<Match> matchs) {
         super(context, 0, matchs);
@@ -25,9 +25,14 @@ public class MatchAdapter extends ArrayAdapter<Match> {
         // Lookup view for data population
         TextView leagueName = (TextView) convertView.findViewById(R.id.leagueName);
         TextView leagueStart = (TextView) convertView.findViewById(R.id.leagueStart);
+        TextView leagueTeam = (TextView) convertView.findViewById(R.id.leagueTeam);
         // Populate the data into the template view using the data object
         leagueName.setText(match.getTournament().name);
         leagueStart.setText(match.getTournament().begin_at.toString());
+
+        if(!match.getOpponents().isEmpty()) {
+            leagueTeam.setText(match.getOpponents().iterator().next().getOpponent().getSlug());
+        }
         // Return the completed view to render on screen
         return convertView;
     }

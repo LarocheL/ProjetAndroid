@@ -18,7 +18,7 @@ import okhttp3.Response;
 //implement the interface OnNavigationItemSelectedListener in your activity class
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-
+    //chargement du fragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     }
 
-
+    //Chargement du fragment par rapport au choix
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
@@ -47,17 +47,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new EquipeFragment();
                 break;
 
-            case R.id.navigation_joueur:
-                fragment = new JoueurFragment();
-                break;
+           // case R.id.navigation_joueur:
+           //     fragment = new JoueurFragment();
+           //     break;
 
             case R.id.navigation_match:
                 fragment = new MatchFragment();
                 break;
 
-            case R.id.navigation_tournois:
-                fragment = new TournoisFragment();
-                break;
+            // case R.id.navigation_tournois:
+            //    fragment = new TournoisFragment();
+            //    break;
         }
 
 
